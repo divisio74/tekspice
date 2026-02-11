@@ -8,10 +8,6 @@
 #ifndef PARSER_HPP
     #define PARSER_HPP
 
-#include <fstream>
-#include <vector>
-#include <string>
-#include <map>
 #include "../Circuit/Circuit.hpp"
 
 namespace nts {

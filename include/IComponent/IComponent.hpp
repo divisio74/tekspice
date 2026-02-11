@@ -8,7 +8,11 @@
 #ifndef ICOMPONENT_HPP
     #define ICOMPONENT_HPP
 
+#include <fstream>
 #include <vector>
+#include <string>
+#include <memory>
+#include <map>
 
 namespace nts
 {

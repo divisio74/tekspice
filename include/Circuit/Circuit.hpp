@@ -8,9 +8,6 @@
 #ifndef CIRCUIT_HPP
     #define CIRCUIT_HPP
 
-#include <map>
-#include <memory>
-#include <string>
 #include "../IComponent/IComponent.hpp"
 
 namespace nts {
