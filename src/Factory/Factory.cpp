@@ -19,7 +19,7 @@ nts::Factory::~Factory()
     
 }
 
-std::unique_ptr<IComponent> nts::Factory::createcompo(std::string)
+std::unique_ptr<IComponent> nts::Factory::createcompo(std::string name)
 {
-
+    if name == 
 }

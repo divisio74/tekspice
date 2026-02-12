@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2025
-** G-PDG-300-LYN-3-1-Factory
+** G-PDG-300-LYN-3-1-Circuit
 ** File description:
-** Factory.cpp
+** Circuit.cpp
 */
 
 #include "../../include/Circuit/Circuit.hpp"
