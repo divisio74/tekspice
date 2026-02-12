@@ -1,0 +1,26 @@
+NAME	=	nanotekspice
+
+CXX	=	g++
+CXXFLAGS	=	-std=c++20 -Wall -Wextra -Werror
+
+SRC	=	main.cpp \
+		src/Parser/Parser.cpp \
+		src/Factory/Factory.cpp \
+		src/Circuit/Circuit.cpp \
+		src/AComponent/AComponent.cpp
+
+OBJ	=	$(SRC:.cpp=.o)
+
+all:	$(NAME)
+
+$(NAME):	$(OBJ)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
+
+clean:
+	rm -f $(OBJ)
+
+fclean:	clean
+	rm -f $(NAME)
+
+re:	fclean all
+
