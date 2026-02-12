@@ -17,7 +17,7 @@ namespace nts {
             Factory() = default;
             ~Factory() = default;
 
-            std::unique_ptr<IComponent> CreateCompo(std::string);
+            std::unique_ptr<IComponent> createcompo(std::string);
     };
 }
 
