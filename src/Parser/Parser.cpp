@@ -79,7 +79,7 @@ void nts::Parser::parsechipset(Circuit &circuit)
             throw std::invalid_argument("Invalid chipset line: " + line);
         if (iss >> extra)
             throw std::invalid_argument("Too many arguments on line: " + line);
-        circuit.addComponent(name, factory.createcompo(type), type);
+        circuit.addComponent(name, factory.createComponent(type), type);
     }
 }
 
