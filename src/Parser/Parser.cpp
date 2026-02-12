@@ -47,6 +47,8 @@ nts::Circuit nts::Parser::parse()
     Circuit circuit;
 
     parsechipset(circuit);
+    if (circuit.isempty())
+        throw std::invalid_argument("No chipsets in the circuit");
     parselinks(circuit);
     return circuit;
 }

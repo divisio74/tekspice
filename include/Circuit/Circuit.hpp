@@ -24,6 +24,7 @@ namespace nts {
             void addComponent(const std::string &name, std::unique_ptr<IComponent> component, const std::string &type);
             IComponent &getComponent(const std::string &name) const;
             void display() const;
+            bool isempty() const;
 
         private:
             std::map<std::string, std::unique_ptr<IComponent>> _components;

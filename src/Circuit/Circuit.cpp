@@ -28,12 +28,16 @@ void nts::Circuit::setLink(std::size_t pin, nts::IComponent &other, std::size_t 
 
 void nts::Circuit::addComponent(const std::string &name, std::unique_ptr<IComponent> component, const std::string &type)
 {
+    if (_components.find(name) != _components.end())
+        throw std::invalid_argument("Several components share the same name: " + name);
     if (type == "output")
         _outputs[name] = component.get();
     _components[name] = std::move(component);
 }
 nts::IComponent &nts::Circuit::getComponent(const std::string &name) const
 {
+    if (_components.find(name) == _components.end())
+        throw std::invalid_argument("Unknown component name: " + name);
     return *_components.at(name);
 }
 
@@ -41,4 +45,11 @@ void nts::Circuit::display() const
 {
     for (auto &[name, out] : _outputs)
         std::cout << name << ": " << out->compute(1) << std::endl;
+}
+
+bool nts::Circuit::isempty() const
+{
+    if (this->_components.empty())
+        return true;
+    return false;
 }
