@@ -6,6 +6,11 @@
 */
 
 #include "../../include/Factory/Factory.hpp"
+#include "../../include/Components/Input.hpp"
+#include "../../include/Components/Output.hpp"
+#include "../../include/Components/Clock.hpp"
+#include "../../include/Components/TrueComponent.hpp"
+#include "../../include/Components/FalseComponent.hpp"
 
 std::unique_ptr<nts::IComponent> nts::Factory::createComponent(const std::string &type)
 {
