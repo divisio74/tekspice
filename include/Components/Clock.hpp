@@ -19,7 +19,7 @@ namespace nts {
 
             nts::Tristate compute(std::size_t pin) override;
             void simulate(std::size_t tick) override;
-            void setValue(nts::Tristate value);
+            void setValue(nts::Tristate value) override;
         private:
             nts::Tristate _value = nts::Undefined;
     };
