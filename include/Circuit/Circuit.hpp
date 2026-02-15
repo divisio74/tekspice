@@ -9,6 +9,7 @@
     #define CIRCUIT_HPP
 
 #include "../IComponent/IComponent.hpp"
+#include "../AComponent/AComponent.hpp"
 
 namespace nts {
 
@@ -16,6 +17,9 @@ namespace nts {
         public:
             Circuit() = default;
             ~Circuit() override = default;
+            Circuit(Circuit &&) = default;
+            Circuit &operator=(Circuit &&) = default;
+
 
             void simulate(std::size_t tick) override;
             nts::Tristate compute(std::size_t pin) override;
@@ -25,11 +29,13 @@ namespace nts {
             IComponent &getComponent(const std::string &name) const;
             void display() const;
             bool isempty() const;
+            void setInputValue(const std::string &name, nts::Tristate value);
 
         private:
             std::map<std::string, std::unique_ptr<IComponent>> _components;
             std::size_t _tick = 0;
             std::map<std::string, IComponent*> _outputs;
+            std::map<std::string, AComponent*> _inputs;
     };
 }
 

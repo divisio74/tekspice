@@ -58,12 +58,12 @@ void nts::Parser::parsechipset(Circuit &circuit)
     std::string line;
     bool inChipsets = false;
     Factory factory;
-    std::istringstream iss(line);
     std::string type;
     std::string name;
     std::string extra;
 
     while (std::getline(_file, line)) {
+        std::istringstream issline(line);
         line = removeComment(line);
         line = trimLine(line);
         if (line.empty())
@@ -77,9 +77,9 @@ void nts::Parser::parsechipset(Circuit &circuit)
         }
         if (!inChipsets)
             throw std::invalid_argument("Expected .chipsets: section");
-        if (!(iss >> type >> name))
+        if (!(issline >> type >> name))
             throw std::invalid_argument("Invalid chipset line: " + line);
-        if (iss >> extra)
+        if (issline >> extra)
             throw std::invalid_argument("Too many arguments on line: " + line);
         circuit.addComponent(name, factory.createComponent(type), type);
     }
@@ -88,7 +88,6 @@ void nts::Parser::parsechipset(Circuit &circuit)
 void nts::Parser::parselinks(Circuit &circuit)
 {
     std::string line;
-    std::istringstream iss(line);
     std::string link1;
     std::string link2;
     std::string extra;
@@ -100,15 +99,16 @@ void nts::Parser::parselinks(Circuit &circuit)
     std::size_t pin2;
 
     while (std::getline(_file, line)) {
+        std::istringstream issline(line);
         line = removeComment(line);
         line = trimLine(line);
         if (line.empty())
             continue;
         if (line[0] == '.')
             throw std::invalid_argument("Unexpected section: " + line);
-        if (!(iss >> link1 >> link2))
+        if (!(issline >> link1 >> link2))
             throw std::invalid_argument("Invalid link line: " + line);
-        if (iss >> extra)
+        if (issline >> extra)
             throw std::invalid_argument("Too many arguments on line: " + line);
         sep1 = link1.find(':');
         sep2 = link2.find(':');

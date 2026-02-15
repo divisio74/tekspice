@@ -5,15 +5,17 @@
 ** Clock.hpp
 */
 
-#include "../include/Components/Clock.hpp"
+#include "../../include/Components/Clock.hpp"
 
 nts::Tristate nts::Clock::compute(std::size_t pin)
 {
+    (void)pin;
     return _value;
 }
 
 void nts::Clock::simulate(std::size_t tick)
 {
+    (void)tick;
     if (_value == nts::True)
         _value = nts::False;
     else if (_value == nts::False)

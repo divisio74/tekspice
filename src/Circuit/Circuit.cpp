@@ -18,12 +18,15 @@ void nts::Circuit::simulate(std::size_t tick) {
 
 nts::Tristate nts::Circuit::compute(std::size_t pin)
 {
+    (void)pin;
     return nts::Undefined;
 }
 
 void nts::Circuit::setLink(std::size_t pin, nts::IComponent &other, std::size_t otherPin)
 {
-
+    (void)pin;
+    (void)other;
+    (void)otherPin;
 }
 
 void nts::Circuit::addComponent(const std::string &name, std::unique_ptr<IComponent> component, const std::string &type)
@@ -32,6 +35,8 @@ void nts::Circuit::addComponent(const std::string &name, std::unique_ptr<ICompon
         throw std::invalid_argument("Several components share the same name: " + name);
     if (type == "output")
         _outputs[name] = component.get();
+    if (type == "input" || type == "clock")
+        _inputs[name] = static_cast<nts::AComponent *>(component.get());
     _components[name] = std::move(component);
 }
 nts::IComponent &nts::Circuit::getComponent(const std::string &name) const
@@ -52,4 +57,11 @@ bool nts::Circuit::isempty() const
     if (this->_components.empty())
         return true;
     return false;
+}
+
+void nts::Circuit::setInputValue(const std::string &name, nts::Tristate value)
+{
+    if (_inputs.find(name) == _inputs.end())
+        throw std::invalid_argument("Unknown input: " + name);
+    _inputs[name]->setValue(value);
 }

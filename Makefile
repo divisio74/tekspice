@@ -7,7 +7,12 @@ SRC	=	main.cpp \
 		src/Parser/Parser.cpp \
 		src/Factory/Factory.cpp \
 		src/Circuit/Circuit.cpp \
-		src/AComponent/AComponent.cpp
+		src/AComponent/AComponent.cpp \
+		src/Components/Input.cpp \
+		src/Components/Output.cpp \
+		src/Components/Clock.cpp \
+		src/Components/TrueComponent.cpp \
+		src/Components/FalseComponent.cpp
 
 OBJ	=	$(SRC:.cpp=.o)
 

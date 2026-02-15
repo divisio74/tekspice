@@ -5,10 +5,11 @@
 ** Input.hpp
 */
 
-#include "../include/Components/Input.hpp"
+#include "../../include/Components/Input.hpp"
 
 nts::Tristate nts::Input::compute(std::size_t pin)
 {
+    (void)pin;
     return _value;
 }
 void nts::Input::setValue(nts::Tristate value)

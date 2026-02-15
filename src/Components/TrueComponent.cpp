@@ -5,10 +5,11 @@
 ** True.hpp
 */
 
-#include "../include/Components/TrueComponent.hpp"
+#include "../../include/Components/TrueComponent.hpp"
 
 nts::Tristate nts::TrueComponent::compute(std::size_t pin)
 {
+    (void)pin;
     return _value;
 }
 

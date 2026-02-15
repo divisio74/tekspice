@@ -5,10 +5,11 @@
 ** Output.hpp
 */
 
-#include "../include/Components/Output.hpp"
+#include "../../include/Components/Output.hpp"
 
 nts::Tristate nts::Output::compute(std::size_t pin)
 {
+    (void)pin;
     return _links[1].first->compute(_links[1].second);
 }
 
