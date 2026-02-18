@@ -63,11 +63,11 @@ void nts::Parser::parsechipset(Circuit &circuit)
     std::string extra;
 
     while (std::getline(_file, line)) {
-        std::istringstream issline(line);
         line = removeComment(line);
         line = trimLine(line);
         if (line.empty())
             continue;
+        std::istringstream issline(line);
         if (line == ".chipsets:") {
             inChipsets = true;
             continue;
