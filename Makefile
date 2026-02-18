@@ -1,7 +1,7 @@
 NAME	=	nanotekspice
 
 CXX	=	g++
-CXXFLAGS	=	-std=c++20 -Wall -Wextra -Werror
+CXXFLAGS	=	-std=c++20 -Wall -Wextra
 
 SRC	=	main.cpp \
 		src/Parser/Parser.cpp \
