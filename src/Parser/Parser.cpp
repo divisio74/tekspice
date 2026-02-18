@@ -57,6 +57,7 @@ void nts::Parser::parsechipset(Circuit &circuit)
 {
     std::string line;
     bool inChipsets = false;
+    bool chipsetsFound = false;
     Factory factory;
     std::string type;
     std::string name;
@@ -69,6 +70,9 @@ void nts::Parser::parsechipset(Circuit &circuit)
             continue;
         std::istringstream issline(line);
         if (line == ".chipsets:") {
+            if (chipsetsFound)
+                throw std::invalid_argument("Duplicate .chipsets: section");
+            chipsetsFound = true;
             inChipsets = true;
             continue;
         }
