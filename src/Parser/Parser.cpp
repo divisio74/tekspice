@@ -99,11 +99,11 @@ void nts::Parser::parselinks(Circuit &circuit)
     std::size_t pin2;
 
     while (std::getline(_file, line)) {
-        std::istringstream issline(line);
         line = removeComment(line);
         line = trimLine(line);
         if (line.empty())
             continue;
+        std::istringstream issline(line);
         if (line[0] == '.')
             throw std::invalid_argument("Unexpected section: " + line);
         if (!(issline >> link1 >> link2))
