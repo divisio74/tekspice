@@ -24,6 +24,7 @@ namespace nts {
 
         protected:
             std::map<std::size_t, std::pair<IComponent*, std::size_t>> _links;
+            nts::Tristate getLinkValue(std::size_t pin);
     };
 }
 

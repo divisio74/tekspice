@@ -16,3 +16,12 @@ void nts::AComponent::setLink(std::size_t pin, nts::IComponent &other, std::size
 {
     _links[pin] = {&other, otherPin};
 }
+
+nts::Tristate nts::AComponent::getLinkValue(std::size_t pin)
+{
+    if (_links.find(pin) == _links.end())
+        return nts::Undefined;
+
+    auto &[component, otherPin] = _links[pin];
+    return component->compute(otherPin);
+}

@@ -10,7 +10,8 @@
 
 
 
-void nts::Circuit::simulate(std::size_t tick) {
+void nts::Circuit::simulate(std::size_t tick)
+{
     _tick = tick;
     for (auto &[name, component] : _components)
         component->simulate(tick);
@@ -46,7 +47,8 @@ nts::IComponent &nts::Circuit::getComponent(const std::string &name) const
     return *_components.at(name);
 }
 
-static std::string tristateToStr(nts::Tristate value) {
+static std::string tristateToStr(nts::Tristate value)
+{
     switch(value) {
         case nts::True: return "1";
         case nts::False: return "0";
