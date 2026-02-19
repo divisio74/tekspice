@@ -9,7 +9,12 @@
 
 nts::Tristate nts::Output::compute(std::size_t pin)
 {
-    (void)pin;
+    if (pin != 1)
+        return nts::Undefined;
+    
+    if (_links.find(1) == _links.end())
+        return nts::Undefined;
+
     return _links[1].first->compute(_links[1].second);
 }
 

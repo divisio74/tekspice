@@ -9,7 +9,8 @@
 
 nts::Tristate nts::FalseComponent::compute(std::size_t pin)
 {
-    (void)pin;
+    if (pin != 1)
+        return nts::Undefined;
     return _value;
 }
 

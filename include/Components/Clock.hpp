@@ -22,6 +22,7 @@ namespace nts {
             void setValue(nts::Tristate value) override;
         private:
             nts::Tristate _value = nts::Undefined;
+            nts::Tristate _nextValue = nts::Undefined;
     };
 }
 
