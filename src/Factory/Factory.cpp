@@ -6,11 +6,15 @@
 */
 
 #include "../../include/Factory/Factory.hpp"
-#include "../../include/Components/Input.hpp"
-#include "../../include/Components/Output.hpp"
-#include "../../include/Components/Clock.hpp"
-#include "../../include/Components/TrueComponent.hpp"
-#include "../../include/Components/FalseComponent.hpp"
+#include "../../include/Components/Special/Input.hpp"
+#include "../../include/Components/Special/Output.hpp"
+#include "../../include/Components/Special/Clock.hpp"
+#include "../../include/Components/Special/TrueComponent.hpp"
+#include "../../include/Components/Special/FalseComponent.hpp"
+#include "../../include/Components/Elementary/AndGate.hpp"
+#include "../../include/Components/Elementary/OrGate.hpp"
+#include "../../include/Components/Elementary/XorGate.hpp"
+#include "../../include/Components/Elementary/NotGate.hpp"
 
 std::unique_ptr<nts::IComponent> nts::Factory::createComponent(const std::string &type)
 {
@@ -24,14 +28,14 @@ std::unique_ptr<nts::IComponent> nts::Factory::createComponent(const std::string
         return createComponent<FalseComponent>();
     if (type == "clock")
         return createComponent<Clock>();
-    //if (type == "and")
-    //    return createComponent<AndGate>();
-    //if (type == "or")
-    //    return createComponent<OrGate>();
-    //if (type == "xor")
-    //    return createComponent<XorGate>();
-    //if (type == "not")
-    //    return createComponent<NotGate>();
+    if (type == "and")
+        return createComponent<AndGate>();
+    if (type == "or")
+        return createComponent<OrGate>();
+    if (type == "xor")
+        return createComponent<XorGate>();
+    if (type == "not")
+        return createComponent<NotGate>();
     //if (type == "4001")
     //    return createComponent<Gate4001>();
     //if (type == "4011")
