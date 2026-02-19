@@ -5,7 +5,7 @@
 ** Input.hpp
 */
 
-#include "../../../include/Components/Input.hpp"
+#include "../../../include/Components/Special/Input.hpp"
 
 nts::Tristate nts::Input::compute(std::size_t pin)
 {

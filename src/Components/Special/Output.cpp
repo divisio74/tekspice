@@ -5,7 +5,7 @@
 ** Output.hpp
 */
 
-#include "../../../include/Components/Output.hpp"
+#include "../../../include/Components/Special/Output.hpp"
 
 nts::Tristate nts::Output::compute(std::size_t pin)
 {

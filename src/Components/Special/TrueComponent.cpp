@@ -5,7 +5,7 @@
 ** True.hpp
 */
 
-#include "../../../include/Components/TrueComponent.hpp"
+#include "../../../include/Components/Special/TrueComponent.hpp"
 
 nts::Tristate nts::TrueComponent::compute(std::size_t pin)
 {

@@ -5,7 +5,7 @@
 ** Clock.hpp
 */
 
-#include "../../../include/Components/Clock.hpp"
+#include "../../../include/Components/Special/Clock.hpp"
 
 nts::Tristate nts::Clock::compute(std::size_t pin)
 {
