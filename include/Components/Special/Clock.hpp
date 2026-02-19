@@ -8,7 +8,7 @@
 #ifndef CLOCK_HPP
     #define CLOCK_HPP
 
-#include "../AComponent/AComponent.hpp"
+#include "../../AComponent/AComponent.hpp"
 
 namespace nts {
 
