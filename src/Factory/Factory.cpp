@@ -15,6 +15,7 @@
 #include "../../include/Components/Elementary/OrGate.hpp"
 #include "../../include/Components/Elementary/XorGate.hpp"
 #include "../../include/Components/Elementary/NotGate.hpp"
+#include "../../include/Components/Advanced/C4081.hpp"
 
 std::unique_ptr<nts::IComponent> nts::Factory::createComponent(const std::string &type)
 {
@@ -36,6 +37,8 @@ std::unique_ptr<nts::IComponent> nts::Factory::createComponent(const std::string
         return createComponent<XorGate>();
     if (type == "not")
         return createComponent<NotGate>();
+    if (type == "4081")
+        return createComponent<C4081>();
     //if (type == "4001")
     //    return createComponent<Gate4001>();
     //if (type == "4011")

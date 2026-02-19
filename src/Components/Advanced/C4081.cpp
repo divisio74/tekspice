@@ -1,0 +1,28 @@
+/*
+** EPITECH PROJECT, 2025
+** G-OOP-400-LYN-4-1-tekspice-17
+** File description:
+** C4081.cpp - Quad 2-input AND gate
+*/
+
+#include "../../../include/Components/Advanced/C4081.hpp"
+
+nts::C4081::C4081()
+{
+    addInternal("a", std::make_unique<AndGate>());
+    mapPin(1,  "a", 1);
+    mapPin(2,  "a", 2);
+    mapPin(3,  "a", 3);
+    addInternal("b", std::make_unique<AndGate>());
+    mapPin(4,  "b", 1);
+    mapPin(5,  "b", 2);
+    mapPin(6,  "b", 3);
+    addInternal("c", std::make_unique<AndGate>());
+    mapPin(8,  "c", 1);
+    mapPin(9,  "c", 2);
+    mapPin(10, "c", 3);
+    addInternal("d", std::make_unique<AndGate>());
+    mapPin(12, "d", 1);
+    mapPin(13, "d", 2);
+    mapPin(11, "d", 3);
+}

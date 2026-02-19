@@ -8,17 +8,17 @@ SRC	=	main.cpp \
 		src/Factory/Factory.cpp \
 		src/Circuit/Circuit.cpp \
 		src/AComponent/AComponent.cpp \
-		src/AGate/AGate.cpp \
+		src/ACompositeComponent/ACompositeComponent.cpp \
 		src/Components/Elementary/AndGate.cpp \
 		src/Components/Elementary/NotGate.cpp \
 		src/Components/Elementary/OrGate.cpp \
 		src/Components/Elementary/XorGate.cpp \
-		src/Components/Logic.cpp \
 		src/Components/Special/Input.cpp \
 		src/Components/Special/Output.cpp \
 		src/Components/Special/Clock.cpp \
 		src/Components/Special/TrueComponent.cpp \
-		src/Components/Special/FalseComponent.cpp
+		src/Components/Special/FalseComponent.cpp \
+		src/Components/Advanced/C4081.cpp
 
 OBJ	=	$(SRC:.cpp=.o)
 

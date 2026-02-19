@@ -6,13 +6,20 @@
 */
 
 #include "../../../include/Components/Elementary/XorGate.hpp"
-#include "../../../include/Components/Logic.hpp"
 
 nts::Tristate nts::XorGate::compute(std::size_t pin)
 {
+    if (pin == 1 || pin == 2)
+        return getLinkValue(pin);
     if (pin != 3)
         return nts::Undefined;
+
     nts::Tristate a = getLinkValue(1);
     nts::Tristate b = getLinkValue(2);
-    return xorLogic(a, b);
+
+    if (a == Undefined || b == Undefined)
+        return Undefined;
+    if (a != b)
+        return True;
+    return False;
 }

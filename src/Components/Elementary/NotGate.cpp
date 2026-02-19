@@ -6,12 +6,19 @@
 */
 
 #include "../../../include/Components/Elementary/NotGate.hpp"
-#include "../../../include/Components/Logic.hpp"
 
 nts::Tristate nts::NotGate::compute(std::size_t pin)
 {
+    if (pin == 1)
+        return getLinkValue(1);
     if (pin != 2)
         return nts::Undefined;
+
     nts::Tristate a = getLinkValue(1);
-    return notLogic(a);
+
+    if (a == Undefined)
+        return Undefined;
+    if (a == True)
+        return False;
+    return True;
 }
