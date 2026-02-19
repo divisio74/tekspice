@@ -8,11 +8,11 @@ SRC	=	main.cpp \
 		src/Factory/Factory.cpp \
 		src/Circuit/Circuit.cpp \
 		src/AComponent/AComponent.cpp \
-		src/Components/Input.cpp \
-		src/Components/Output.cpp \
-		src/Components/Clock.cpp \
-		src/Components/TrueComponent.cpp \
-		src/Components/FalseComponent.cpp
+		src/Components/Special/Input.cpp \
+		src/Components/Special/Output.cpp \
+		src/Components/Special/Clock.cpp \
+		src/Components/Special/TrueComponent.cpp \
+		src/Components/Special/FalseComponent.cpp
 
 OBJ	=	$(SRC:.cpp=.o)
 
