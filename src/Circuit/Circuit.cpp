@@ -46,10 +46,25 @@ nts::IComponent &nts::Circuit::getComponent(const std::string &name) const
     return *_components.at(name);
 }
 
+static std::string tristateToStr(nts::Tristate value) {
+    switch(value) {
+        case nts::True: return "1";
+        case nts::False: return "0";
+        case nts::Undefined: return "U";
+    }
+    return "U";
+}
+
 void nts::Circuit::display() const
 {
+    std::cout << "tick: " << _tick << std::endl;
+
+    std::cout << "input(s):" << std::endl;
+    for (auto &[name, input] : _inputs)
+        std::cout << name << ": " << tristateToStr(input->compute(1)) << std::endl;
+    std::cout << "output(s):" << std::endl;
     for (auto &[name, out] : _outputs)
-        std::cout << name << ": " << out->compute(1) << std::endl;
+        std::cout << name << ": " << tristateToStr(out->compute(1)) << std::endl;
 }
 
 bool nts::Circuit::isempty() const
@@ -64,4 +79,9 @@ void nts::Circuit::setInputValue(const std::string &name, nts::Tristate value)
     if (_inputs.find(name) == _inputs.end())
         throw std::invalid_argument("Unknown input: " + name);
     _inputs[name]->setValue(value);
+}
+
+std::size_t nts::Circuit::getTick() const
+{
+    return _tick;
 }

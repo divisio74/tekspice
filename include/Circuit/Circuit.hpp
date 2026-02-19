@@ -30,6 +30,7 @@ namespace nts {
             void display() const;
             bool isempty() const;
             void setInputValue(const std::string &name, nts::Tristate value);
+            std::size_t getTick() const;
 
         private:
             std::map<std::string, std::unique_ptr<IComponent>> _components;
