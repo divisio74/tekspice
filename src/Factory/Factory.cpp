@@ -15,7 +15,12 @@
 #include "../../include/Components/Elementary/OrGate.hpp"
 #include "../../include/Components/Elementary/XorGate.hpp"
 #include "../../include/Components/Elementary/NotGate.hpp"
-#include "../../include/Components/Advanced/C4081.hpp"
+#include "../../include/Components/Gates/C4081.hpp"
+#include "../../include/Components/Gates/C4001.hpp"
+#include "../../include/Components/Gates/C4011.hpp"
+#include "../../include/Components/Gates/C4030.hpp"
+#include "../../include/Components/Gates/C4069.hpp"
+#include "../../include/Components/Gates/C4071.hpp"
 
 std::unique_ptr<nts::IComponent> nts::Factory::createComponent(const std::string &type)
 {
@@ -39,18 +44,18 @@ std::unique_ptr<nts::IComponent> nts::Factory::createComponent(const std::string
         return createComponent<NotGate>();
     if (type == "4081")
         return createComponent<C4081>();
-    //if (type == "4001")
-    //    return createComponent<Gate4001>();
-    //if (type == "4011")
-    //    return createComponent<Gate4011>();
-    //if (type == "4030")
-    //    return createComponent<Gate4030>();
-    //if (type == "4069")
-    //    return createComponent<Gate4069>();
-    //if (type == "4071")
-    //    return createComponent<Gate4071>();
-    //if (type == "4081")
-    //    return createComponent<Gate4081>();
+    if (type == "4001")
+        return createComponent<C4001>();
+    if (type == "4011")
+        return createComponent<C4011>();
+    if (type == "4030")
+        return createComponent<C4030>();
+    if (type == "4069")
+        return createComponent<C4069>();
+    if (type == "4071")
+        return createComponent<C4071>();
+    if (type == "4081")
+        return createComponent<C4081>();
     //if (type == "4008")
     //    return createComponent<Gate4008>();
     //if (type == "4013")

@@ -18,7 +18,14 @@ SRC	=	main.cpp \
 		src/Components/Special/Clock.cpp \
 		src/Components/Special/TrueComponent.cpp \
 		src/Components/Special/FalseComponent.cpp \
-		src/Components/Advanced/C4081.cpp
+		src/Components/Gates/C4081.cpp \
+		src/Components/Gates/C4001.cpp \
+		src/Components/Gates/C4011.cpp \
+		src/Components/Gates/C4030.cpp \
+		src/Components/Gates/C4069.cpp \
+		src/Components/Gates/C4071.cpp \
+		src/Components/Gates/NorGate.cpp \
+		src/Components/Gates/NandGate.cpp 
 
 OBJ	=	$(SRC:.cpp=.o)
 
