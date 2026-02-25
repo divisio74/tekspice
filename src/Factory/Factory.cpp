@@ -26,6 +26,11 @@
 #include "../../include/Components/Advanced/C4017.hpp"
 #include "../../include/Components/Advanced/C4040.hpp"
 #include "../../include/Components/Advanced/C4094.hpp"
+#include "../../include/Components/Advanced/C4512.hpp"
+#include "../../include/Components/Advanced/C4514.hpp"
+#include "../../include/Components/Advanced/C4801.hpp"
+#include "../../include/Components/Advanced/C2716.hpp"
+#include "../../include/Components/Special/Logger.hpp"
 
 std::unique_ptr<nts::IComponent> nts::Factory::createComponent(const std::string &type)
 {
@@ -71,17 +76,15 @@ std::unique_ptr<nts::IComponent> nts::Factory::createComponent(const std::string
         return createComponent<C4040>();
     if (type == "4094")
         return createComponent<C4094>();
-    //if (type == "4512")
-    //    return createComponent<C4094>();
-    //if (type == "4512")
-    //    return createComponent<C4512>();
-    //if (type == "4514")
-    //    return createComponent<C4514>();
-    //if (type == "4801")
-    //    return createComponent<C4801>();
-    //if (type == "2716")
-    //    return createComponent<C2716>();
-    //if (type == "logger")
-    //    return createComponent<Logger>();
+    if (type == "4512")
+        return createComponent<C4512>();
+    if (type == "4514")
+        return createComponent<C4514>();
+    if (type == "4801")
+        return createComponent<C4801>();
+    if (type == "2716")
+        return createComponent<C2716>();
+    if (type == "logger")
+        return createComponent<Logger>();
     throw std::invalid_argument("Unknown component type: " + type);
 }

@@ -43,7 +43,7 @@ void nts::Circuit::addComponent(const std::string &name, std::unique_ptr<ICompon
 nts::IComponent &nts::Circuit::getComponent(const std::string &name) const
 {
     if (_components.find(name) == _components.end())
-        throw std::invalid_argument("Unknown component name: " + name);
+        throw std::invalid_argument("Unknow component name '" + name + "'.");
     return *_components.at(name);
 }
 
@@ -63,10 +63,10 @@ void nts::Circuit::display() const
 
     std::cout << "input(s):" << std::endl;
     for (auto &[name, input] : _inputs)
-        std::cout << name << ": " << tristateToStr(input->compute(1)) << std::endl;
+        std::cout << "  " << name << ": " << tristateToStr(input->compute(1)) << std::endl;
     std::cout << "output(s):" << std::endl;
     for (auto &[name, out] : _outputs)
-        std::cout << name << ": " << tristateToStr(out->compute(1)) << std::endl;
+        std::cout << "  " << name << ": " << tristateToStr(out->compute(1)) << std::endl;
 }
 
 bool nts::Circuit::isempty() const

@@ -30,7 +30,12 @@ SRC	=	main.cpp \
 		src/Components/Advanced/C4013.cpp \
 		src/Components/Advanced/C4017.cpp \
 		src/Components/Advanced/C4040.cpp \
-		src/Components/Advanced/C4094.cpp
+		src/Components/Advanced/C4094.cpp \
+		src/Components/Advanced/C4512.cpp \
+		src/Components/Advanced/C4514.cpp \
+		src/Components/Advanced/C4801.cpp \
+		src/Components/Advanced/C2716.cpp \
+		src/Components/Special/Logger.cpp
 
 OBJ	=	$(SRC:.cpp=.o)
 
