@@ -40,6 +40,7 @@ int main(int argc, char **argv)
                 looping = true;
                 while (true) {
                     circuit.simulate(circuit.getTick() + 1);
+                    circuit.display();
                 }
             }
             else {

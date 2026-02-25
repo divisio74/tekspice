@@ -23,6 +23,9 @@
 #include "../../include/Components/Gates/C4071.hpp"
 #include "../../include/Components/Advanced/C4008.hpp"
 #include "../../include/Components/Advanced/C4013.hpp"
+#include "../../include/Components/Advanced/C4017.hpp"
+#include "../../include/Components/Advanced/C4040.hpp"
+#include "../../include/Components/Advanced/C4094.hpp"
 
 std::unique_ptr<nts::IComponent> nts::Factory::createComponent(const std::string &type)
 {
@@ -60,13 +63,15 @@ std::unique_ptr<nts::IComponent> nts::Factory::createComponent(const std::string
         return createComponent<C4081>();
     if (type == "4008")
         return createComponent<C4008>();
+    if (type == "4017")
+        return createComponent<C4017>();
     if (type == "4013")
         return createComponent<C4013>();
-    //if (type == "4017")
-    //    return createComponent<C4017>();
-    //if (type == "4040")
-    //    return createComponent<C4040>();
-    //if (type == "4094")
+    if (type == "4040")
+        return createComponent<C4040>();
+    if (type == "4094")
+        return createComponent<C4094>();
+    //if (type == "4512")
     //    return createComponent<C4094>();
     //if (type == "4512")
     //    return createComponent<C4512>();
