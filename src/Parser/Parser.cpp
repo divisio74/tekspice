@@ -123,5 +123,6 @@ void nts::Parser::parselinks(Circuit &circuit)
         name2 = link2.substr(0, sep2);
         pin2 = std::stoul(link2.substr(sep2 + 1));
         circuit.getComponent(name1).setLink(pin1, circuit.getComponent(name2), pin2);
+        circuit.getComponent(name2).setLink(pin2, circuit.getComponent(name1), pin1);
     }
 }

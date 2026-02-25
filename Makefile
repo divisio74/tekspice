@@ -25,7 +25,9 @@ SRC	=	main.cpp \
 		src/Components/Gates/C4069.cpp \
 		src/Components/Gates/C4071.cpp \
 		src/Components/Gates/NorGate.cpp \
-		src/Components/Gates/NandGate.cpp 
+		src/Components/Gates/NandGate.cpp \
+		src/Components/Advanced/C4008.cpp \
+		src/Components/Advanced/C4013.cpp
 
 OBJ	=	$(SRC:.cpp=.o)
 

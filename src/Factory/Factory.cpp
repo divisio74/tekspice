@@ -21,6 +21,8 @@
 #include "../../include/Components/Gates/C4030.hpp"
 #include "../../include/Components/Gates/C4069.hpp"
 #include "../../include/Components/Gates/C4071.hpp"
+#include "../../include/Components/Advanced/C4008.hpp"
+#include "../../include/Components/Advanced/C4013.hpp"
 
 std::unique_ptr<nts::IComponent> nts::Factory::createComponent(const std::string &type)
 {
@@ -56,24 +58,24 @@ std::unique_ptr<nts::IComponent> nts::Factory::createComponent(const std::string
         return createComponent<C4071>();
     if (type == "4081")
         return createComponent<C4081>();
-    //if (type == "4008")
-    //    return createComponent<Gate4008>();
-    //if (type == "4013")
-    //    return createComponent<Gate4013>();
+    if (type == "4008")
+        return createComponent<C4008>();
+    if (type == "4013")
+        return createComponent<C4013>();
     //if (type == "4017")
-    //    return createComponent<Gate4017>();
+    //    return createComponent<C4017>();
     //if (type == "4040")
-    //    return createComponent<Gate4040>();
+    //    return createComponent<C4040>();
     //if (type == "4094")
-    //    return createComponent<Gate4094>();
+    //    return createComponent<C4094>();
     //if (type == "4512")
-    //    return createComponent<Gate4512>();
+    //    return createComponent<C4512>();
     //if (type == "4514")
-    //    return createComponent<Gate4514>();
+    //    return createComponent<C4514>();
     //if (type == "4801")
-    //    return createComponent<Gate4801>();
+    //    return createComponent<C4801>();
     //if (type == "2716")
-    //    return createComponent<Gate2716>();
+    //    return createComponent<C2716>();
     //if (type == "logger")
     //    return createComponent<Logger>();
     throw std::invalid_argument("Unknown component type: " + type);

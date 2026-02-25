@@ -19,6 +19,7 @@ void nts::Clock::simulate(std::size_t tick)
     (void)tick;
     if (_nextValue != nts::Undefined) {
         _value = _nextValue;
+        _nextValue = nts::Undefined;
     }
     else if (_value == nts::True)
         _value = nts::False;
