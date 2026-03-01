@@ -10,6 +10,7 @@
 
     #include "../AComponent/AComponent.hpp"
     #include <map>
+    #include <vector>
     #include <string>
     #include <memory>
 
@@ -28,11 +29,9 @@ namespace nts {
             };
             void addInternal(const std::string &name, std::unique_ptr<AComponent> component);
             void mapPin(std::size_t externalPin, const std::string &internalName,
-                             std::size_t internalPin);
-            void wireInternal(const std::string &fromComp, std::size_t fromPin,
-                              const std::string &toComp, std::size_t toPin);
+                std::size_t internalPin);
             std::map<std::string, std::unique_ptr<AComponent>> _internals;
-            std::map<std::size_t, PinRoute> _pinRoutes;
+            std::vector<std::pair<std::size_t, PinRoute>> _pinRoutes;
     };
 }
 #endif

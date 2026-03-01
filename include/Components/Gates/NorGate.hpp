@@ -16,6 +16,10 @@ namespace nts {
             ~NorGate() override = default;
 
             nts::Tristate compute(std::size_t pin) override;
+
+        private:
+            nts::Tristate _state = nts::Undefined;
+            bool _computing = false;
     };
 }
 #endif
