@@ -11,9 +11,17 @@ nts::Tristate nts::Input::compute(std::size_t pin)
 {
     if (pin != 1)
         return nts::Undefined;
-    return _value;
+    return _displayValue;
 }
+
 void nts::Input::setValue(nts::Tristate value)
 {
-    _value = value;
+    _nextValue = value;
+}
+
+void nts::Input::simulate(std::size_t tick)
+{
+    (void)tick;
+    _displayValue = _value;
+    _value = _nextValue;
 }
