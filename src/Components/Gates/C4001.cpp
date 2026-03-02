@@ -18,9 +18,9 @@ nts::C4001::C4001()
     mapPin(6,  "b", 2);
     mapPin(4,  "b", 3);
     addInternal("c", std::make_unique<NorGate>());
-    mapPin(9,  "c", 1);
-    mapPin(10, "c", 2);
-    mapPin(8,  "c", 3);
+    mapPin(8,  "c", 1);
+    mapPin(9,  "c", 2);
+    mapPin(10, "c", 3);
     addInternal("d", std::make_unique<NorGate>());
     mapPin(12, "d", 1);
     mapPin(13, "d", 2);
