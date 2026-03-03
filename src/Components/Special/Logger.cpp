@@ -6,7 +6,6 @@
 */
 
 #include "../../../include/Components/Special/Logger.hpp"
-#include <fstream>
 
 void nts::Logger::simulate(std::size_t tick)
 {

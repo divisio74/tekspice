@@ -19,15 +19,15 @@ namespace nts {
         void simulate(std::size_t tick) override;
     private:
         nts::Tristate _shift[8] = {
-            nts::Undefined, nts::Undefined, nts::Undefined, nts::Undefined,
-            nts::Undefined, nts::Undefined, nts::Undefined, nts::Undefined
+            nts::False, nts::False, nts::False, nts::False,
+            nts::False, nts::False, nts::False, nts::False
         };
         nts::Tristate _latch[8] = {
-            nts::Undefined, nts::Undefined, nts::Undefined, nts::Undefined,
-            nts::Undefined, nts::Undefined, nts::Undefined, nts::Undefined
+            nts::False, nts::False, nts::False, nts::False,
+            nts::False, nts::False, nts::False, nts::False
         };
-        nts::Tristate _prevClk = nts::Undefined;
-        nts::Tristate _qs2 = nts::Undefined;
+        nts::Tristate _prevClk = nts::False;
+        nts::Tristate _qs2 = nts::False;
     };
 }
 #endif

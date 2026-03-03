@@ -5,7 +5,6 @@
 ** main.cpp
 */
 
-#include <iostream>
 #include "include/Parser/Parser.hpp"
 
 int main(int argc, char **argv)
@@ -15,6 +14,7 @@ int main(int argc, char **argv)
         return 84;
     }
     try {
+        std::ofstream("./log.bin", std::ios::binary | std::ios::trunc);
         nts::Parser parser(argv[1]);
         nts::Circuit circuit = parser.parse();
         std::string line;

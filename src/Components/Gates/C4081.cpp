@@ -14,9 +14,9 @@ nts::C4081::C4081()
     mapPin(2,  "a", 2);
     mapPin(3,  "a", 3);
     addInternal("b", std::make_unique<AndGate>());
-    mapPin(4,  "b", 1);
-    mapPin(5,  "b", 2);
-    mapPin(6,  "b", 3);
+    mapPin(5,  "b", 1);
+    mapPin(6,  "b", 2);
+    mapPin(4,  "b", 3);
     addInternal("c", std::make_unique<AndGate>());
     mapPin(8,  "c", 1);
     mapPin(9,  "c", 2);
