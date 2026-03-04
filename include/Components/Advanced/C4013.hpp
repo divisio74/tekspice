@@ -20,8 +20,8 @@ namespace nts {
     private:
         nts::Tristate _q1       = nts::Undefined;
         nts::Tristate _q2       = nts::Undefined;
-        nts::Tristate _prevClk1 = nts::False;
-        nts::Tristate _prevClk2 = nts::False;
+        nts::Tristate _prevClk1 = nts::Undefined;
+        nts::Tristate _prevClk2 = nts::Undefined;
     };
 }
 #endif

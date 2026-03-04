@@ -13,11 +13,9 @@ void nts::C4017::simulate(std::size_t tick)
 
     nts::Tristate clk    = getLinkValue(15);
     nts::Tristate clkInh = getLinkValue(14);
-    nts::Tristate rst    = getLinkValue(13);
+    nts::Tristate ce     = getLinkValue(13);
 
-    if (rst == True)
-        _count = 0;
-    else if (_prevClk == False && clk == True && clkInh != True)
+    if (_prevClk == False && clk == True && clkInh != True && ce != False)
         _count = (_count + 1) % 10;
     _prevClk = clk;
 }

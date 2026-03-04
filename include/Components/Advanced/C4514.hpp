@@ -17,8 +17,6 @@ namespace nts {
         ~C4514() override = default;
         nts::Tristate compute(std::size_t pin) override;
         void simulate(std::size_t tick) override;
-    private:
-        int _latch = -1;
     };
 }
 #endif

@@ -19,7 +19,7 @@ namespace nts {
         void simulate(std::size_t tick) override;
     private:
         int _count = 0;
-        nts::Tristate _prevClk = nts::False;
+        nts::Tristate _prevClk = nts::Undefined;
     };
 }
 #endif
