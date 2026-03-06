@@ -5,7 +5,8 @@
 ** main.cpp
 */
 
-#include "include/Parser/Parser.hpp"
+#include "include/VM/VM.hpp"
+#include <fstream>
 
 int main(int argc, char **argv)
 {
@@ -15,60 +16,11 @@ int main(int argc, char **argv)
     }
     try {
         std::ofstream("./log.bin", std::ios::binary | std::ios::trunc);
-        nts::Parser parser(argv[1]);
-        nts::Circuit circuit = parser.parse();
-        std::string line;
-        bool looping = false;
-
-        while (true) {
-            if (!looping)
-                std::cout << "> ";
-
-            if (!std::getline(std::cin, line))
-                break;
-            if (line.empty())
-                continue;
-
-            if (line == "exit")
-                break;
-            else if (line == "display")
-                circuit.display();
-            else if (line == "simulate") {
-                circuit.simulate(circuit.getTick() + 1);
-            }
-            else if (line == "loop") {
-                looping = true;
-                while (true) {
-                    circuit.simulate(circuit.getTick() + 1);
-                    circuit.display();
-                }
-            }
-            else {
-                std::size_t eq = line.find('=');
-                if (eq != std::string::npos) {
-                    std::string name = line.substr(0, eq);
-                    std::string value = line.substr(eq + 1);
-                    nts::Tristate val;
-                    if (value == "0")
-                        val = nts::False;
-                    else if (value == "1")
-                        val = nts::True;
-                    else if (value == "U")
-                        val = nts::Undefined;
-                    else throw std::invalid_argument("Invalid value: " + value);
-
-                    circuit.setInputValue(name, val);
-                }
-                else {
-                    std::cerr << "Unknown command: " << line << std::endl;
-                }
-            }
-        }
-
+        nts::VM vm(argv[1]);
+        vm.run();
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
         return 84;
     }
-
     return 0;
 }
