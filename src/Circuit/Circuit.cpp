@@ -13,8 +13,12 @@
 void nts::Circuit::simulate(std::size_t tick)
 {
     _tick = tick;
-    for (auto &[name, component] : _components)
-        component->simulate(tick);
+    for (auto &[name, comp] : _inputs)
+        comp->simulate(tick);
+    for (auto &[name, comp] : _components) {
+        if (_inputs.find(name) == _inputs.end())
+            comp->simulate(tick);
+    }
 }
 
 nts::Tristate nts::Circuit::compute(std::size_t pin)
